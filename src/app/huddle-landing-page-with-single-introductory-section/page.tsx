@@ -56,14 +56,14 @@ export default function HuddleLandingPageWithSingleIntroductorySection() {
         </div>
       </div>
 
-      <div className="flex justify-center gap-2.5 mt-14 lg:justify-end">
+      <div className="flex justify-center gap-2.5 mt-14 lg:mt-auto lg:justify-end">
         {socials.map((social) => {
           const Icon = social.icon;
           return (
             <Link
               key={social.name}
               href="#"
-              className="flex w-7 h-7 justify-center items-center rounded-full border hover:text-fuchsia-400"
+              className="flex w-7 lg:w-10 h-7 lg:h-10 justify-center items-center rounded-full border hover:text-fuchsia-400"
             >
               <Icon />
             </Link>
