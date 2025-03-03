@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa6";
 
+import { Attribution } from "@/components/attribution";
+
 import logo from "./images/logo.svg";
 import illustration from "./images/illustration-mockups.svg";
 
@@ -19,15 +21,17 @@ export const metadata: Metadata = {
 export default function HuddleLandingPageWithSingleIntroductorySection() {
   return (
     <div className="font-(family-name:--font-open-sans) p-10 text-white bg-violet-600 bg-[url(/huddle-landing-page-with-single-introductory-section/bg-mobile.svg)] md:bg-[url(/huddle-landing-page-with-single-introductory-section/bg-desktop.svg)] bg-no-repeat bg-contain lg:min-h-screen">
-      <Image
-        width={120}
-        height={30}
-        src={logo}
-        alt="logo"
-        className="w-[120px] md:w-[200px]"
-      />
+      <header>
+        <Image
+          width={120}
+          height={30}
+          src={logo}
+          alt="logo"
+          className="w-[120px] md:w-[200px]"
+        />
+      </header>
 
-      <div className="mt-16 flex flex-col gap-16 lg:flex-row">
+      <main className="mt-16 flex flex-col gap-16 lg:flex-row">
         <div className="flex-1">
           <Image
             width={296}
@@ -54,22 +58,26 @@ export default function HuddleLandingPageWithSingleIntroductorySection() {
             Register
           </Link>
         </div>
-      </div>
+      </main>
 
-      <div className="flex justify-center gap-2.5 mt-14 lg:mt-auto lg:justify-end">
-        {socials.map((social) => {
-          const Icon = social.icon;
-          return (
-            <Link
-              key={social.name}
-              href="#"
-              className="flex w-7 lg:w-10 h-7 lg:h-10 justify-center items-center rounded-full border hover:text-fuchsia-400"
-            >
-              <Icon />
-            </Link>
-          );
-        })}
-      </div>
+      <footer>
+        <div className="flex justify-center gap-2.5 mt-14 lg:mt-auto lg:justify-end">
+          {socials.map((social) => {
+            const Icon = social.icon;
+            return (
+              <Link
+                key={social.name}
+                href="#"
+                className="flex w-7 lg:w-10 h-7 lg:h-10 justify-center items-center rounded-full border hover:text-fuchsia-400"
+              >
+                <Icon />
+                <span className="sr-only">{social.name}</span>
+              </Link>
+            );
+          })}
+        </div>
+        <Attribution color="light" />
+      </footer>
     </div>
   );
 }
